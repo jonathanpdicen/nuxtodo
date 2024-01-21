@@ -1,6 +1,6 @@
 # Nuxtodo
 
-![Alt text](/public/images/screenshot.png)
+![Alt text](/public/images/screenshot.jpg)
 
 Effortlessly manage tasks with our sleek Nuxt.js Todo app. Enjoy a seamless, modern interface for efficient daily organization. Elevate your productivity today!
 
