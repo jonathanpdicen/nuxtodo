@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+
+// color variables
+$red: #dc3742;
+$blue: #377ac2;
+$green: #3bb373;
+$dark: #2b4849;
+$gray-1: #e4e4e9;
+$gray-2: #d0c9c9;
+$gray-3: #f0f0f0;
+
+$base-font: 'Lato', sans-serif;
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient($green, $dark) fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: $base-font;
+}
+
+h2 {
+    letter-spacing: 1px;
+    margin: 0;
+    color: white;
+    font-size: 60px;
+    text-align: center;
+}
+
+.v-btn {
+    text-transform:none !important;
+}
+
+.done {
+    .overlay {
+        display: block;
+    }
+
+    h4 {
+        text-decoration: line-through;
+    }
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.5);
+    z-index: 1;
+    display: none;
+}
+
+.container {
+    margin: 10px auto;
+    max-width: 500px !important;
+    width: 500px !important;
+    background-color: white;
+
+    .header,
+    .footer {
+        padding: 15px;
+    }
+
+    .header,
+    .footer {
+        background-color: $gray-1;
+    }
+
+    .header {
+        > div > div {
+            margin-left: 6px;
+        }
+    }
+
+    .body {
+        padding: 30px 15px;
+        max-height: 220px;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    .footer {
+        .add-task {
+            &__field .v-field {
+                border: 2px solid $blue;
+            }
+
+            &__btn {
+                cursor: pointer;
+            }
+        }
+    }
+
+    .task {
+        &__list {
+            border: 1px solid #d0c9c9;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            padding: 12px;
+            cursor: pointer;
+
+            &:hover {
+                background-color: $gray-3;
+            }
+
+            .delete-btn {
+                opacity: 0;
+            }
+
+            &:hover .delete-btn {
+                opacity: 1;
+            }
+        }
+
+        &__badge {
+            color: white;
+            background-color: $blue;
+            padding: 4px 0 4px 8px;
+            font-weight: 600;
+            border-radius: 24px;
+    
+            h3 {
+                font-size: 12px;
+                margin-right: 4px;
+            }
+        }
+
+        &__remover {
+            color: white;
+            background-color: $red;
+            padding: 6px 8px;
+            font-size: 12px;
+            font-weight: 600;
+            border-radius: 1px;
+            cursor: pointer;
+        }
+    }
+}
+
+// transition
+.slide-enter-active,
+.slide-leave-active {
+    transition: transform 0.5s ease;
+}
+
+.slide-enter,
+.slide-leave-to {
+    transform: translateX(30px);
+}
