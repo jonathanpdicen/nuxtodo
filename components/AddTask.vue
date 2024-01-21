@@ -1,6 +1,8 @@
 <script setup lang="ts">
 const store = useTodoListStore()
 
+const { error } = storeToRefs(store)
+
 const todo = ref('')
 
 const addItemToList = () => {
@@ -14,6 +16,7 @@ const addItemToList = () => {
     variant="solo"
     label="New Task"
     class="add-task__field"
+    :class="{ 'error' : error}"
     hide-details
     rounded
     flat

@@ -5,6 +5,7 @@ export const useTodoListStore = defineStore('todoList', {
   state: () => ({
     todoList: useStorage('todos', [] as ITodo[]),
     id: 0,
+    error: null as string | null,
   }),
   getters: {
     countTotalTodos(): number {
@@ -18,8 +19,14 @@ export const useTodoListStore = defineStore('todoList', {
     incrementId() {
       return this.id++;
     },
+    setError(error: string | null) {
+      this.error = error;
+    },
     addTodo(title: string) {
-      if (!title) return;
+      if (!title) {
+        this.setError("Title is required.");
+        return;
+      }
 
       const todo = {
         title,
@@ -28,6 +35,7 @@ export const useTodoListStore = defineStore('todoList', {
       };
 
       this.todoList.push(todo);
+      this.setError(null);
     },
     toggleDone(id: number) {
       const todo = this.todoList.find((todo) => todo.id === id)
